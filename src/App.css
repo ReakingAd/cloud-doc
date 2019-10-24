@@ -1,23 +1,27 @@
-.App {
-  text-align: center;
-  font-family:"Microsoft YaHei";
+.btn-icon{
+	background: none;
+	border: none;
+	color: inherit;
 }
-
-.App-logo {
-  height: 40vmin;
+.c-link{
+	cursor: pointer;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.start-page{
+	font-size: 30px;
+	height: 300px;
+	line-height: 300px;
+	color:#ccc;
+	text-align: center;
 }
-
-.App-link {
-  color: #09d3ac;
+.left-panel{
+	min-height: 100vh;
+	position: relative;
+}
+.button-group{
+	position: absolute;
+	bottom:0;
+	width:100%;
+}
+.no-border{
+	border-radius: 0!important;
 }
