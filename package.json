@@ -3,6 +3,11 @@
   "version": "0.1.0",
   "main": "main.js",
   "private": true,
+  "description": "Online Markdown Editor using Qiniu cloud service",
+  "author": {
+    "name": "Litao",
+    "email": "ltvieri@163.com"
+  },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.25",
     "@fortawesome/free-brands-svg-icons": "^5.11.2",
@@ -10,18 +15,29 @@
     "@fortawesome/react-fontawesome": "^0.1.7",
     "bootstrap": "^4.3.1",
     "classnames": "^2.2.6",
+    "electron-is-dev": "^1.1.0",
+    "electron-store": "^5.0.0",
     "node-sass": "^4.12.0",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-scripts": "3.2.0",
-    "react-simplemde-editor": "^4.1.0"
+    "react-simplemde-editor": "^4.1.0",
+    "uuid": "^3.3.3"
+  },
+  "build": {
+    "appId": "cloudDoc",
+    "productName": "七牛云文档",
+    "copyright": "Copyright c 2019",
+    "extends": null
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "dev": "concurrently \"wait-on http://localhost:3000 && electron .\"  \"cross-env BROWSER=none npm start\""
+    "dev": "concurrently \"wait-on http://localhost:3000 && electron .\"  \"cross-env BROWSER=none npm start\"",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -42,7 +58,7 @@
     "concurrently": "^5.0.0",
     "cross-env": "^6.0.3",
     "electron": "^7.0.0",
-    "electron-is-dev": "^1.1.0",
+    "electron-builder": "^21.2.0",
     "wait-on": "^3.3.0"
   }
 }

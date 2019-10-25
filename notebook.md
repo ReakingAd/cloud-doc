@@ -7,6 +7,15 @@
 **布局方式：**
 1. 传统的基于盒模型的布局。利用display,float,position。
 2. w3c新提出的flex布局。这也是未来的方向
+3. promise的链式调用。
+    >
+        func1()
+        .then(res => {
+            return func2()
+        })
+        .then( res => {
+            console.log(res)
+        })
 
 # Question
 1. grid bootstrap中的栅格系统，面试常考
@@ -20,6 +29,7 @@
   implicit adj. 含蓄的；暗示的；盲从的
 - resemble vt. 类似，像
   assemble vt. 集合，聚集；装配；收集
+- UUID = universally unique identifier 通用唯一识别码
 # React
 1. react中的两种副作用：
     - 无需清除的副作用。 发送http，记录log
@@ -55,8 +65,19 @@ useEffect()可以配置出，当某个变量改变时，调用useEffect(),这很
         组件函数内使用 let,var 定义的变量，在刷新视图时，会以初始值重新定义一次。但是使用 hooks
         定义的变量，就像在另一个空间定义的变量，当组件视图刷新时，组件会去另一个空间去把新赋的值勾回来，供组件使用。
 
-# hooks 
+# hooks
 
-1. 陷阱：useState()返回的函数是异步的，因此使用set函数后，马上去获取值只能获取到旧的值。
+> Hook 是一些可以让你在函数组件里“钩入” React state 及生命周期等特性的函数
+
+> useEffect 就是一个 Effect Hook，给函数组件增加了操作副作用的能力
+>   - 副作用：组件中执行数据获取、订阅、手动修改DOM.副作用分两类
+        - 需要清除的副作用
+        - 不需要清除的副作用
+>   - 它跟 class 组件中的 componentDidMount、componentDidUpdate 和 componentWillUnmount 具有相同的用途
+>   - 如果某个副作用，只需要在挂载的时候放上去，卸载的时候去掉，那么就可以把空数组`[]`
+>     当做第二个参数传给`setEffect()`
+
+1. **陷阱**：useState()返回的函数是异步的，因此使用set函数后，马上去获取值只能获取到旧的值。
     hooks这样做的目的是处于性能的考虑，尽量在所有状态改变后值重绘一次就解决问题。而不是改一次
     重绘一次。
+2. 
