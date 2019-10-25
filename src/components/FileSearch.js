@@ -5,24 +5,25 @@ import useKeyPress from '../hooks/useKeyPress'
 
 const FileSearch = ( {title,onFileSearch} ) => {
     const [ inputActive,setInputActive ] = useState( false );
-    const [ value,setValue ] = useState('');
+    const [ keyword,setKeyword ] = useState('');
     const enterPressed = useKeyPress(13);
-    const escPressed = useKeyPress(27)
+    const escPressed = useKeyPress(27);
 
     const closeSearch = () => {
         setInputActive( false );
-        setValue('');
+        setKeyword('');
+        onFileSearch('');
     }
     let inputRef = useRef( null );
     // 每次重新渲染视图，都会执行这个副作用
     useEffect( () => {
         if( enterPressed && inputActive ){
-            onFileSearch( value );
+            onFileSearch( keyword );
         }
         if( escPressed && inputActive ){
             closeSearch();
         }
-    })
+    },[enterPressed,escPressed])
     // 只有在 inputActive 改变时，才会执行这个副作用。
     useEffect( () => {
         if( inputActive )
@@ -52,9 +53,9 @@ const FileSearch = ( {title,onFileSearch} ) => {
                 <>
                     <input 
                         className="form-control"
-                        value={ value }
+                        value={ keyword }
                         ref={ inputRef }
-                        onChange={ (e) => { setValue( e.target.value ) } }
+                        onChange={ (e) => { setKeyword( e.target.value ) } }
                     />
                     <button
                         type="button"
